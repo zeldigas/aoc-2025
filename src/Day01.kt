@@ -12,6 +12,7 @@ fun main() {
                         arrow += 100
                     }
                 }
+
                 'R' -> {
                     arrow += amount
                     arrow %= 100
@@ -44,6 +45,7 @@ fun main() {
                         }
                     }
                 }
+
                 'R' -> {
                     arrow += amount
                     if (arrow > 100) {
