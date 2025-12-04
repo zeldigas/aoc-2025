@@ -29,7 +29,7 @@ fun main() {
 
         val matrix = input.map { it.toCharArray() }.toTypedArray()
 
-        return (0 until n).sumOf { i -> (0 until n).sumOf { j -> if (isFree(matrix, n, m, i, j)) 1 else 0 } }
+        return (0 until n).sumOf { i -> (0 until m).sumOf { j -> if (isFree(matrix, n, m, i, j)) 1 else 0 } }
     }
 
     fun part2(input: List<String>): Int {
@@ -40,7 +40,7 @@ fun main() {
         fun cleanup(): Int {
             var cnt = 0
             (0 until n).forEach { i ->
-                (0 until n).forEach { j ->
+                (0 until m).forEach { j ->
                     if (isFree(matrix, n, m, i, j)) {
                         matrix[i][j] = '.'
                         cnt++
