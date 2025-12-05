@@ -26,3 +26,17 @@ fun Any?.println() = println(this)
 
 fun digits(j: Long): Int = floor(log10(j.toDouble())).toInt() + 1
 fun firstNumberWithDigits(digits: Int) = 10.toDouble().pow(digits-1).toLong()
+
+operator fun LongRange.contains(other: LongRange): Boolean {
+    return first <= other.first && last >= other.last
+}
+
+fun LongRange.hasIntersection(other: LongRange): Boolean {
+    return if (first <= other.first) {
+        other.first <= last && last <= other.last
+    } else {
+        other.hasIntersection(this)
+    }
+}
+
+fun LongRange.size() = last - first + 1
